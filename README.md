@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Us
 
-## Available Scripts
+A historical education/social media hybrid, which uses maps to allow people to see noteworthy historical events in their immediate area, and to add to the historical record of their community by creating events.
+This is my most current and most ambitious portfolio project. I expect many challenges, but am so excited to create something I would love to use myself.
 
-In the project directory, you can run:
+# My stack (subject to change!)
 
-### `npm start`
+- React.js/ReactNative/Redux/Hooks (create-react-app)
+- Leaflet.js
+- Bootstrap (for static pages)
+- Sass
+- Styled Components (on the web app)
+- NPM/NPM Scripts
+- Webpack
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Things I expect to learn in this project
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Heavy use of APIs, to power maps, map events, auth, and more
+- Authentication, SSH, and HTTPS
+- Writing clean, modular, maintainable React code will be more important than it has been in previous, smaller projects
 
-### `npm test`
+# 1. Planning and Mockups
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 1.1 Main features outline
+- 1.2 Simple Style Guide
+- 1.3 Create mockups
 
-### `npm run build`
+## 1.1 Main Features
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Main app interface will be a map, displaying the users location and immediate area.
+- Map will be populated by markers representing significant historical events which have occurred in the users immediate location.
+- Interaction with the marker will open card overlay, containing a summary of the event, alog with available photos, and additional links.
+- (To be added on 2nd version of app) Users with an account can save events to favorites, and comment on events as well as share on social media.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Future Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Users can submit events which will be added to an API after verification.
+- Users can also add personal historical events, such as births, deaths, as well as other notable life events. These events may be visible to the user's local network.
 
-### `npm run eject`
+## 1.2 Styling
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Logo is underway!
+I like the simple and friendly design of Khan Academy, and will take inspiration from it in designing UI elements as well as the overall layout of the site/app.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### This is my current palette (coolors.co)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Palette](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/styles/palette.PNG)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### My font pairing (fontpair.co)
 
-## Learn More
+![Fonts](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/styles/fonts.PNG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Headings
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I will use this tool to convert my units from px to vw or vh https://codepen.io/lakshmiR/pen/YGWXoo
 
-### Code Splitting
+- h1 - 50px
+- h2 - 40px
+- h3 - 34px
+- p - 16px
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## 1.3 Mockups
 
-### Analyzing the Bundle Size
+![main map open account menu](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/mockup/UI/mainViewOpenMenu.jpg)
+![marker overlay open](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/mockup/UI/overlayView.jpg)
+![marker overlay open comments section](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/mockup/UI/overlayScrolled.jpg)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# 2. Folder Structure and Component Hierarchy
 
-### Making a Progressive Web App
+I've decided to follow the guidelines outlined in https://medium.com/@Charles_Stover/optimal-file-structure-for-react-applications-f3e35ad0a145 as closely as possible.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+My folder structure will resemble this:
+![Folder structure](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/folder%20structure/structure_1.PNG)
+![Folder structure 2](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/folder%20structure/structure_2.PNG)
 
-### Advanced Configuration
+## 2.1 Component Diagrams
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+![General Components Outline](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/component%20diagrams/componentDiagram_1.jpg)
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+# 3. Draft Build
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
