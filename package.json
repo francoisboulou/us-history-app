@@ -6,7 +6,6 @@
     "yarn": "1.16.0",
     "node": "12.7.0"
   },
-  "homepage": "https://francoisboulou.github.io/us-history-app",
   "dependencies": {
     "audit": "^0.0.6",
     "heroku": "^7.27.1",
@@ -20,8 +19,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
