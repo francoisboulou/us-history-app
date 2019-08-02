@@ -2,10 +2,13 @@
   "name": "us-history-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "yarn": "1.16.0",
+    "node": "12.7.0"
+  },
   "homepage": "https://francoisboulou.github.io/us-history-app",
   "dependencies": {
     "audit": "^0.0.6",
-    "gh-pages": "^2.1.0",
     "heroku": "^7.27.1",
     "leaflet": "^1.5.1",
     "react": "^16.8.6",
