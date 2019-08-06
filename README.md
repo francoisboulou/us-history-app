@@ -7,7 +7,10 @@ This is my most current and most ambitious portfolio project. I expect many chal
 
 # My stack (subject to change!)
 
-- React.js/ReactNative/Redux/Hooks (create-react-app)
+- React.js (create-react-app)
+  - Hooks
+  - Context
+  - Router
 - Leaflet.js
 - Bootstrap (for static pages)
 - Sass
