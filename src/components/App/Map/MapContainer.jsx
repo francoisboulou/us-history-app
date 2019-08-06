@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Map, TileLayer } from "react-leaflet";
+import { Map, TileLayer, MapControl } from "react-leaflet";
 // import Button from "../../Utils/Button";
 // import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import CenterMap from "./Controls/Button";
 
 export default function MapContainer(props) {
   const zoom = 16;
@@ -12,41 +13,15 @@ export default function MapContainer(props) {
   const layerID = "mapbox.streets";
   const url = `https://api.tiles.mapbox.com/v4/${layerID}/{z}/{x}/{y}.png?access_token=${token}`;
 
-  // L.Control.CenterBtn = L.Control.extend({
-  //   onAdd: function(map) {
-  //     var button = L.DomUtil.create("button");
-  //     button.innerHTML = "set location";
-
-  // return (
-  // <Button
-  //   content={"center on my location"}
-  //   onClick={() => alert("thirstay")}
-  // />
-  //         button
-  //       );
-  //     },
-
-  //     onRemove: function(map) {
-  //       // Nothing to do here
-  //     }
-  //   });
-
-  //   L.control.centerBtn = function(opts) {
-  //     return new L.Control.CenterBtn(opts);
-  //   };
-
-  //   L.control.centerBtn({ position: "bottomleft" }).addTo(map);
-  // });
-
-  // <MapView />
-
   return (
     <Map
+      id="myMap"
       style={{ height: "100vh", width: "100%" }}
       center={[props.latitude, props.longitude]}
       zoom={zoom}
     >
       <TileLayer attribution={attribution} url={url} />
+      <CenterMap />
     </Map>
   );
 }
