@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import Map from "./Map";
+import MapView from "./Map";
 
 function App() {
-  return <Map />;
+  return <MapView />;
 }
 
 /* <link

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-class MapContainer extends Component {
-  componentDidMount() {
-    this.map = L.map("map", {
+export default function MapContainer() {
+  useEffect(() => {
+    L.map("map", {
       center: [49.8419, 24.0315],
       zoom: 16,
       layers: [
@@ -20,11 +20,7 @@ class MapContainer extends Component {
         )
       ]
     });
-  }
+  });
 
-  render() {
-    return <div style={{ height: "100vh", width: "100vw" }} id="map"></div>;
-  }
+  return <div style={{ height: "100vh", width: "100vw" }} id="map" />;
 }
-
-export default MapContainer;
