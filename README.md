@@ -22,7 +22,8 @@ This is my most current and most ambitious portfolio project. I expect many chal
 
 - Heavy use of APIs, to power maps, map events, auth, and more
 - Authentication, SSH, and HTTPS
-- Writing clean, modular, maintainable React code will be more important than it has been in previous, smaller projects
+- Writing clean, modular, maintainable React code will be more important than it has been in previous, smaller projects.
+- Use of more advanced React features such as hooks, router, and state management solutions such as redux if necessary.
 
 # 1. Planning and Mockups
 
