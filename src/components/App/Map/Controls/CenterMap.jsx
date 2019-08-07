@@ -6,7 +6,7 @@ class CenterMap extends MapControl {
     const CenterMap = L.Control.extend({
       onAdd: map => {
         this.ctrButton = L.DomUtil.create("button");
-        this.ctrButton.innerHTML = "set location";
+        this.ctrButton.innerHTML = "my location";
         this.ctrButton.onclick = () => {
           navigator.geolocation.getCurrentPosition(position => {
             map.panTo(

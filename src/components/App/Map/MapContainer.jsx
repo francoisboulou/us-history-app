@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Map, TileLayer } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 // import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import CenterMap from "./Controls/CenterMap";
 
 export default function MapContainer(props) {
@@ -11,13 +10,13 @@ export default function MapContainer(props) {
     "pk.eyJ1IjoiZnJhbmNvaXNib3Vsb3UiLCJhIjoiY2p5bmExeDlsMHJ2ZDNqbzlnaTczb3A0aSJ9.CuRKIcFYSVEtYf1UHYGs_g";
   const layerID = "mapbox.streets";
   const url = `https://api.tiles.mapbox.com/v4/${layerID}/{z}/{x}/{y}.png?access_token=${token}`;
-
+  const center = [props.latitude, props.longitude];
+  // const location = ;
   return (
-    <Map
-      style={{ height: "100vh", width: "100%" }}
-      center={[props.latitude, props.longitude]}
-      zoom={zoom}
-    >
+    <Map style={{ height: "100vh", width: "100%" }} center={center} zoom={zoom}>
+      <Marker position={center}>
+        <Popup>Some shit went down hurrr.</Popup>
+      </Marker>
       <TileLayer attribution={attribution} url={url} />
       <CenterMap />
     </Map>
