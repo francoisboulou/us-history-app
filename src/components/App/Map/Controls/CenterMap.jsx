@@ -7,6 +7,13 @@ class CenterMap extends MapControl {
       onAdd: map => {
         this.ctrButton = L.DomUtil.create("button");
         this.ctrButton.innerHTML = "set location";
+        this.ctrButton.onclick = () => {
+          navigator.geolocation.getCurrentPosition(position => {
+            map.panTo(
+              new L.LatLng(position.coords.latitude, position.coords.longitude)
+            );
+          });
+        };
         return this.ctrButton;
       }
       // onRemove: function(map) {

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Map, TileLayer, MapControl } from "react-leaflet";
-// import Button from "../../Utils/Button";
+import { Map, TileLayer } from "react-leaflet";
 // import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import CenterMap from "./Controls/Button";
+import CenterMap from "./Controls/CenterMap";
 
 export default function MapContainer(props) {
   const zoom = 16;
@@ -15,7 +14,6 @@ export default function MapContainer(props) {
 
   return (
     <Map
-      id="myMap"
       style={{ height: "100vh", width: "100%" }}
       center={[props.latitude, props.longitude]}
       zoom={zoom}
