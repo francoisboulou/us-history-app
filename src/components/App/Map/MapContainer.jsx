@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
-import controlExtend from "../../Utils/controlExtend";
+import myLocation from "./Controls/MyLocation/myLocation";
 // import Markers from "./Marker";
 
 export default function MapContainer(props) {
@@ -30,29 +30,8 @@ export default function MapContainer(props) {
   );
 
   useEffect(() => {
-    const opts = {
-      position: "bottomright"
-    };
-    const handlers = {
-      onClick: () => {
-        navigator.geolocation.getCurrentPosition(position => {
-          mapRef.current.panTo([
-            position.coords.latitude,
-            position.coords.longitude
-          ]);
-        });
-      }
-    };
-    L.control.myLoc = controlExtend(
-      "button",
-      "My Location",
-      opts,
-      mapRef,
-      handlers
-    ).addTo(mapRef.current);
+    myLocation(mapRef);
   });
-
-  // const handleMoveend = () => {};
 
   return (
     <div
