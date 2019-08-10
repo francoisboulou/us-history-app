@@ -1,19 +1,14 @@
 import controlExtend from "./../../../../Utils/controlExtend";
 import L from "leaflet";
 
-export default function MyLocation(mapRef) {
+export default function MyLocation(mapRef, center) {
   const opts = {
     position: "bottomright"
   };
 
   const handlers = {
     onClick: () => {
-      navigator.geolocation.getCurrentPosition(position => {
-        mapRef.current.panTo([
-          position.coords.latitude,
-          position.coords.longitude
-        ]);
-      });
+      mapRef.current.panTo(center);
     }
   };
 

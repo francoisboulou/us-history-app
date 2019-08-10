@@ -8,6 +8,7 @@ export default function MapContainer(props) {
     "pk.eyJ1IjoiZnJhbmNvaXNib3Vsb3UiLCJhIjoiY2p5bmExeDlsMHJ2ZDNqbzlnaTczb3A0aSJ9.CuRKIcFYSVEtYf1UHYGs_g";
   const layerID = "mapbox.streets";
   const mapRef = useRef(null);
+  const center = [props.latitude, props.longitude];
 
   useEffect(
     () => {
@@ -30,12 +31,14 @@ export default function MapContainer(props) {
   );
 
   useEffect(() => {
-    myLocation(mapRef);
+    myLocation(mapRef, center);
   });
 
   return (
     <div
-      // onMoveend={handleMoveend}
+      onMoveend={() => {
+        alert("clicked");
+      }}
       style={{ height: "100vh", width: "100%" }}
       id="map"
     >
