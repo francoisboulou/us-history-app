@@ -1,7 +1,7 @@
 import controlExtend from "./../../../../Utils/controlExtend";
 import L from "leaflet";
 
-export default function MyLocation(mapRef, center) {
+export default function resetLocationCtrl(mapRef, center) {
   const opts = {
     position: "bottomright"
   };
