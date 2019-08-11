@@ -2,14 +2,18 @@
 ### This app is in early development
 ### Deployed with Heroku at https://intense-falls-46861.herokuapp.com/
 
-A historical education/social media hybrid, which uses maps to allow people to see noteworthy historical events in their immediate area, and to add to the historical record of their community by creating events.
-This is my most current and most ambitious portfolio project. I expect many challenges, but am so excited to create something I would love to use myself.
+A educational history map that displays noteworthy historical events in the user's immediate area.
+A goal for the project is to eventually include a social component, wherein users add their own events and can interact with those uploaded by other users.
+
+Currently, I am focusing on creating a working interface. But, as my knowledge of the back end grows, I expect to develop Us into a functional app. 
+
+Another challenge is the lack of local history APIs. In the near future, I aim to create my own. 
 
 # My stack (subject to change!)
 
 - React.js (create-react-app)
   - Hooks
-  - Context
+  - Context API
   - Router
 - Leaflet.js
 - Bootstrap (for static pages)
@@ -20,10 +24,10 @@ This is my most current and most ambitious portfolio project. I expect many chal
 
 # Things I expect to learn in this project
 
-- Heavy use of APIs, to power maps, map events, auth, and more
-- Authentication, SSH, and HTTPS
 - Writing clean, modular, maintainable React code will be more important than it has been in previous, smaller projects.
-- Use of more advanced React features such as hooks, router, and state management solutions such as redux if necessary.
+- Use of more advanced React features such as hooks, routing, and state management solutions such as Context API and Redux if necessary.
+- APIs
+- Auth
 
 # 1. Planning and Mockups
 
