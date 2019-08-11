@@ -86,7 +86,7 @@ I will use this tool to convert my units from px to vw or vh https://codepen.io/
 
 # 2. Folder Structure and Component Hierarchy
 
-I've decided to follow the guidelines outlined in https://medium.com/@Charles_Stover/optimal-file-structure-for-react-applications-f3e35ad0a145 as closely as possible.
+I've decided to follow the guidelines outlined in https://medium.com/@Charles_Stover/optimal-file-structure-for-react-applications-f3e35ad0a145 whenever reasonable.
 
 My folder structure will resemble this:
 ![Folder structure](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/folder%20structure/structure_1.PNG)
