@@ -100,6 +100,5 @@ export default function historyAPI(lat, lng) {
   APIResponse.forEach((response, index) => {
     response.location = eventCoords[index];
   });
-  console.log(APIResponse);
   return APIResponse;
 }

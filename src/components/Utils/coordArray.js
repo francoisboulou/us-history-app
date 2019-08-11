@@ -1,7 +1,6 @@
-//creates 10 latlng pairs in the direct area of a given latlng pair
+// This function creates latlng pairs within bounds defined for use in setting dummy markers
 
 export default function coordArray(lat,lng) {
-  console.log("latlng", lat, lng);
   const boundsMod = .025
   const markerAmnt = 15
   
