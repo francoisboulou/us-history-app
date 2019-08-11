@@ -1,17 +1,12 @@
-import React, { useState } from "react"; //useEffect
+import React, { useState, useEffect } from "react"; //useEffect
 import "./App.css";
 import Map from "./Map";
+import historyAPI from "../../assets/historyAPI";
 
 export default function App() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-
-  // useEffect(() => {
-  //   effect;
-  //   return () => {
-  //     cleanup;
-  //   };
-  // }, []);
+  const [events, setEvents] = useState(null);
 
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -20,8 +15,19 @@ export default function App() {
     });
   }
   // else {  /* geolocation IS NOT available */}
-  if (latitude === null || longitude === null) {
+
+  useEffect(
+    () => {
+      if (latitude && longitude) {
+        setEvents(historyAPI(latitude, longitude));
+      }
+    },
+    // esling-disable-next-line
+    [latitude, longitude]
+  );
+
+  if (latitude === null || longitude === null || events === null) {
     return <div>Loading</div>;
   }
-  return <Map latitude={latitude} longitude={longitude} />;
+  return <Map events={events} latitude={latitude} longitude={longitude} />;
 }
