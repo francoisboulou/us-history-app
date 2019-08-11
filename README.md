@@ -9,6 +9,15 @@ Currently, I am focusing on creating a working interface. But, as my knowledge o
 
 Another challenge is the lack of local history APIs. In the near future, I aim to create my own. 
 
+# Items Completed So Far
+
+  - Detection of user location with navigator.geolocation getLocation method
+  - Set up of Leaflet.js with a strictly functional (hooks) React style
+  - Emulation of a historical API that returns objects with historical event information
+  - Use of artificial location information provided by API to dynamically create markers on map
+  - Use of Leaflet methods to create a custom map reset button that uses data collected by the navigator.geolocation API
+  - Creation of a custom marker icon style that matches the mockups below
+
 # My stack (subject to change!)
 
 - React.js (create-react-app)
@@ -86,7 +95,3 @@ My folder structure will resemble this:
 ## 2.1 Component Diagrams
 
 ![General Components Outline](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/component%20diagrams/componentDiagram_1.jpg)
-
-
-# 3. Draft Build
-
