@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
 import resetMap from "./Controls/ResetMap/resetMap";
-import createMarkers from "./Markers/createMarkers";
+import createIcons from "./Markers/createIcons";
 
 export default function MapContainer(props) {
   const center = [props.latitude, props.longitude];
   const layerID = "mapbox.streets";
   const token =
     "pk.eyJ1IjoiZnJhbmNvaXNib3Vsb3UiLCJhIjoiY2p5bmExeDlsMHJ2ZDNqbzlnaTczb3A0aSJ9.CuRKIcFYSVEtYf1UHYGs_g";
-  const zoom = 15.5;
+  const zoom = 14.5;
   const mapRef = useRef(null);
 
+  // Map created
   useEffect(
     () => {
       mapRef.current = L.map("map", {
@@ -31,6 +32,7 @@ export default function MapContainer(props) {
     []
   );
 
+  // Function extends Leaflet Control class to create a custom button
   useEffect(
     () => {
       resetMap(mapRef, center, zoom);
@@ -39,11 +41,21 @@ export default function MapContainer(props) {
     []
   );
 
-  useEffect(() => {
-    if (props.events) {
-      createMarkers(mapRef, props.events);
-    }
-  }, [props.events]);
+  // Setting markers based on information passed to comp from historyAPI()
+  useEffect(
+    () => {
+      if (props.events) {
+        const iconsArr = createIcons(props.events);
+        props.events.forEach((event, i) => {
+          L.marker(event.location, {
+            icon: iconsArr[i]
+          }).addTo(mapRef.current);
+        });
+      }
+    },
+    //eslint-disable-next-line
+    []
+  );
 
   return <div style={{ height: "100vh", width: "100%" }} id="map" />;
 }

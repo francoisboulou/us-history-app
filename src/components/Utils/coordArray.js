@@ -1,8 +1,8 @@
-// This function creates latlng pairs within bounds defined for use in setting dummy markers
+// This function creates latlng pairs within bounds defined, for setting dummy markers
 
 export default function coordArray(lat,lng) {
   const boundsMod = .025
-  const markerAmnt = 15
+  const markerAmnt = 25
   
   const topLat = lat + boundsMod;
   const botLat = lat - boundsMod;

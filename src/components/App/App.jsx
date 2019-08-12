@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"; //useEffect
 import "./App.css";
 import Map from "./Map";
-import historyAPI from "../../assets/historyAPI";
+import historyAPI from "../Utils/historyAPI";
 
 export default function App() {
   const [latitude, setLatitude] = useState(null);
