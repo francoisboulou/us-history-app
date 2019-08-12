@@ -2,14 +2,27 @@
 ### This app is in early development
 ### Deployed with Heroku at https://intense-falls-46861.herokuapp.com/
 
-A historical education/social media hybrid, which uses maps to allow people to see noteworthy historical events in their immediate area, and to add to the historical record of their community by creating events.
-This is my most current and most ambitious portfolio project. I expect many challenges, but am so excited to create something I would love to use myself.
+A educational history map that displays noteworthy historical events in the user's immediate area.
+A goal for the project is to eventually include a social component, wherein users add their own events and can interact with those uploaded by other users.
+
+Currently, I am focusing on creating a working interface. But, as my knowledge of the back end grows, I expect to develop Us into a functional app. 
+
+Another challenge is the lack of local history APIs. In the near future, I aim to create my own. 
+
+# Items Completed So Far
+
+  - Detection of user location with navigator.geolocation getLocation method
+  - Set up of Leaflet.js with a strictly functional (hooks) React style
+  - Emulation of a historical API that returns objects with historical event information
+  - Use of artificial location information provided by API to dynamically create markers on map
+  - Use of Leaflet methods to create a custom map reset button that uses data collected by the navigator.geolocation API
+  - Creation of a custom marker icon style that matches the mockups below
 
 # My stack (subject to change!)
 
 - React.js (create-react-app)
   - Hooks
-  - Context
+  - Context API
   - Router
 - Leaflet.js
 - Bootstrap (for static pages)
@@ -20,10 +33,10 @@ This is my most current and most ambitious portfolio project. I expect many chal
 
 # Things I expect to learn in this project
 
-- Heavy use of APIs, to power maps, map events, auth, and more
-- Authentication, SSH, and HTTPS
 - Writing clean, modular, maintainable React code will be more important than it has been in previous, smaller projects.
-- Use of more advanced React features such as hooks, router, and state management solutions such as redux if necessary.
+- Use of more advanced React features such as hooks, routing, and state management solutions such as Context API and Redux if necessary.
+- APIs
+- Auth
 
 # 1. Planning and Mockups
 
@@ -73,7 +86,7 @@ I will use this tool to convert my units from px to vw or vh https://codepen.io/
 
 # 2. Folder Structure and Component Hierarchy
 
-I've decided to follow the guidelines outlined in https://medium.com/@Charles_Stover/optimal-file-structure-for-react-applications-f3e35ad0a145 as closely as possible.
+I've decided to follow the guidelines outlined in https://medium.com/@Charles_Stover/optimal-file-structure-for-react-applications-f3e35ad0a145 whenever reasonable.
 
 My folder structure will resemble this:
 ![Folder structure](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/folder%20structure/structure_1.PNG)
@@ -82,7 +95,3 @@ My folder structure will resemble this:
 ## 2.1 Component Diagrams
 
 ![General Components Outline](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/component%20diagrams/componentDiagram_1.jpg)
-
-
-# 3. Draft Build
-
