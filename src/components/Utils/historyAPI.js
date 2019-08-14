@@ -37,7 +37,7 @@ export default function historyAPI(lat, lng) {
     {
       title: "Fantasy Fight Becomes a Reality",
       description:
-        "It was a publicity stunt, but it was hugely popular, as each fight was performed as a radio play – as if the fight was taking place live.",
+        "It was a publicity stunt, but it was hugely popular.",
       text:
         "The film Rocky Balboa (2006) has a strange premise: after the current heavyweight champion sees a computer-generated fight between himself and Rocky, he gets the Italian Stallion out of retirement for a bout. But this somewhat ridiculous scenario does have a historic precedent.", 
         image: test2
@@ -45,7 +45,7 @@ export default function historyAPI(lat, lng) {
     {
       title: "The dancing plague",
       description:
-        "also known as ‘St Vitus’s Dance’, choreomania was a truly bizarre medieval phenomenon from central Europe",
+        "a truly bizarre medieval phenomenon from central Europe",
       text:
         "It involved spontaneous and continuous dancing by crowds of people until they collapsed through exhaustion – or worse, died. Bizarre as it sounds, choreomania was regularly reported by eyewitnesses and was a genuine concern for authorities. It also seems to have been contagious – for example, in June 1374 one of the widest outbreaks began in Aachen, Germany, before spreading to other places such as Cologne, Flanders, Utrecht, and later Italy.", 
         image: test3
@@ -60,7 +60,7 @@ export default function historyAPI(lat, lng) {
     {
       title: "An underwhelming WW2 battle",
       description:
-        "Castle Itter is a small fortification in Austria used by the SS during the Second World War as a prison for high profile detainees. It is also the site of one of the most curious battles of the conflict.",
+        "one of the most curious battles of the conflict.",
       text:
         "On 6 May 1945, peace was on the horizon and the Third Reich was collapsing. With the German commander (also in charge of Dachau) committing suicide, and some of the Waffen SS soldiers retreating, one of the prisoners, Zvonimir Čučković, a Yugoslav freedom fighter, escaped and went looking for some Allied troops to rescue the rest of the prisoners.", 
         image: test5
@@ -75,7 +75,7 @@ export default function historyAPI(lat, lng) {
     {
       title: "The sack of Baltimore",
       description:
-        "In southern Ireland there is a small village called Baltimore. It had little to contribute to history until the summer of 1631, when it was attacked – but by whom?",
+        "It had little to contribute to history until the summer of 1631, when it was attacked – but by whom?",
       text:
         "Was it the French planning an invasion of England via the Emerald Isle? Or perhaps it was some kind of pro-Catholic uprising leading to a vicious English assault, or the Spanish up to their old tricks? You might be surprised to learn that the perpetrators were about as exotic as it gets for the 17th century – Barbary pirates from North Africa led by a Dutch captain (and Muslim convert)-turned pirate, Jan Janszoon van Haarlem, also known as Murad Reis the Younger.", 
         image: test7
@@ -90,7 +90,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "Fantasy Fight Becomes a Reality",
         description:
-          "It was a publicity stunt, but it was hugely popular, as each fight was performed as a radio play – as if the fight was taking place live.",
+          "It was a publicity stunt, but it was hugely popular.",
         text:
           "The film Rocky Balboa (2006) has a strange premise: after the current heavyweight champion sees a computer-generated fight between himself and Rocky, he gets the Italian Stallion out of retirement for a bout. But this somewhat ridiculous scenario does have a historic precedent.", 
           image: test9
@@ -98,7 +98,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "The dancing plague",
         description:
-          "also known as ‘St Vitus’s Dance’, choreomania was a truly bizarre medieval phenomenon from central Europe",
+          "a truly bizarre medieval phenomenon from central Europe",
         text:
           "It involved spontaneous and continuous dancing by crowds of people until they collapsed through exhaustion – or worse, died. Bizarre as it sounds, choreomania was regularly reported by eyewitnesses and was a genuine concern for authorities. It also seems to have been contagious – for example, in June 1374 one of the widest outbreaks began in Aachen, Germany, before spreading to other places such as Cologne, Flanders, Utrecht, and later Italy.", 
           image: test10
@@ -113,7 +113,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "An underwhelming WW2 battle",
         description:
-          "Castle Itter is a small fortification in Austria used by the SS during the Second World War as a prison for high profile detainees. It is also the site of one of the most curious battles of the conflict.",
+          "one of the most curious battles of the conflict.",
         text:
           "On 6 May 1945, peace was on the horizon and the Third Reich was collapsing. With the German commander (also in charge of Dachau) committing suicide, and some of the Waffen SS soldiers retreating, one of the prisoners, Zvonimir Čučković, a Yugoslav freedom fighter, escaped and went looking for some Allied troops to rescue the rest of the prisoners.", 
           image: test12
@@ -128,7 +128,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "The sack of Baltimore",
         description:
-          "In southern Ireland there is a small village called Baltimore. It had little to contribute to history until the summer of 1631, when it was attacked – but by whom?",
+          "It had little to contribute to history until the summer of 1631, when it was attacked – but by whom?",
         text:
           "Was it the French planning an invasion of England via the Emerald Isle? Or perhaps it was some kind of pro-Catholic uprising leading to a vicious English assault, or the Spanish up to their old tricks? You might be surprised to learn that the perpetrators were about as exotic as it gets for the 17th century – Barbary pirates from North Africa led by a Dutch captain (and Muslim convert)-turned pirate, Jan Janszoon van Haarlem, also known as Murad Reis the Younger.", 
           image: test14
@@ -143,7 +143,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "Fantasy Fight Becomes a Reality",
         description:
-          "It was a publicity stunt, but it was hugely popular, as each fight was performed as a radio play – as if the fight was taking place live.",
+          "It was a publicity stunt, but it was hugely popular.",
         text:
           "The film Rocky Balboa (2006) has a strange premise: after the current heavyweight champion sees a computer-generated fight between himself and Rocky, he gets the Italian Stallion out of retirement for a bout. But this somewhat ridiculous scenario does have a historic precedent.", 
           image: test16
@@ -151,7 +151,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "The dancing plague",
         description:
-          "also known as ‘St Vitus’s Dance’, choreomania was a truly bizarre medieval phenomenon from central Europe",
+          "a truly bizarre medieval phenomenon from central Europe",
         text:
           "It involved spontaneous and continuous dancing by crowds of people until they collapsed through exhaustion – or worse, died. Bizarre as it sounds, choreomania was regularly reported by eyewitnesses and was a genuine concern for authorities. It also seems to have been contagious – for example, in June 1374 one of the widest outbreaks began in Aachen, Germany, before spreading to other places such as Cologne, Flanders, Utrecht, and later Italy.", 
           image: test17
@@ -166,7 +166,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "An underwhelming WW2 battle",
         description:
-          "Castle Itter is a small fortification in Austria used by the SS during the Second World War as a prison for high profile detainees. It is also the site of one of the most curious battles of the conflict.",
+          "one of the most curious battles of the conflict.",
         text:
           "On 6 May 1945, peace was on the horizon and the Third Reich was collapsing. With the German commander (also in charge of Dachau) committing suicide, and some of the Waffen SS soldiers retreating, one of the prisoners, Zvonimir Čučković, a Yugoslav freedom fighter, escaped and went looking for some Allied troops to rescue the rest of the prisoners.", 
           image: test19
@@ -181,7 +181,7 @@ export default function historyAPI(lat, lng) {
       {
         title: "The sack of Baltimore",
         description:
-          "In southern Ireland there is a small village called Baltimore. It had little to contribute to history until the summer of 1631, when it was attacked – but by whom?",
+          "It had little to contribute to history until the summer of 1631, when it was attacked – but by whom?",
         text:
           "Was it the French planning an invasion of England via the Emerald Isle? Or perhaps it was some kind of pro-Catholic uprising leading to a vicious English assault, or the Spanish up to their old tricks? You might be surprised to learn that the perpetrators were about as exotic as it gets for the 17th century – Barbary pirates from North Africa led by a Dutch captain (and Muslim convert)-turned pirate, Jan Janszoon van Haarlem, also known as Murad Reis the Younger.", 
           image: test21
@@ -196,7 +196,7 @@ export default function historyAPI(lat, lng) {
         {
           title: "Fantasy Fight Becomes a Reality",
           description:
-            "It was a publicity stunt, but it was hugely popular, as each fight was performed as a radio play – as if the fight was taking place live.",
+            "It was a publicity stunt, but it was hugely popular.",
           text:
             "The film Rocky Balboa (2006) has a strange premise: after the current heavyweight champion sees a computer-generated fight between himself and Rocky, he gets the Italian Stallion out of retirement for a bout. But this somewhat ridiculous scenario does have a historic precedent.", 
             image: test23
@@ -204,7 +204,7 @@ export default function historyAPI(lat, lng) {
         {
           title: "The dancing plague",
           description:
-            "also known as ‘St Vitus’s Dance’, choreomania was a truly bizarre medieval phenomenon from central Europe",
+            "choreomania was a truly bizarre medieval phenomenon from central Europe",
           text:
             "It involved spontaneous and continuous dancing by crowds of people until they collapsed through exhaustion – or worse, died. Bizarre as it sounds, choreomania was regularly reported by eyewitnesses and was a genuine concern for authorities. It also seems to have been contagious – for example, in June 1374 one of the widest outbreaks began in Aachen, Germany, before spreading to other places such as Cologne, Flanders, Utrecht, and later Italy.", 
             image: test24
