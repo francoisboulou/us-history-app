@@ -17,6 +17,7 @@ Another challenge is the lack of local history APIs. In the near future, I aim t
   - Use of artificial location information provided by API to dynamically create markers on map
   - Use of Leaflet methods to create a custom map reset button that uses data collected by the navigator.geolocation API
   - Creation of a custom marker icon style that matches the mockups below
+  - Marker click behavior that centers and expands marker, and opens custom popup. Marker and popup are stacked vertically for mobile-friendliness.
 
 # My stack (subject to change!)
 
