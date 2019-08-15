@@ -1,4 +1,4 @@
-import controlExtend from "../../../../Utils/controlExtend";
+import controlExtend from "../../../../Utils/util_extendControl";
 import L from "leaflet";
 
 export default function resetMap(mapRef, center, zoom) {
