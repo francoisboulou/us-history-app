@@ -94,7 +94,7 @@ export default function MapContainer(props) {
           // });
 
           let pointX = marker._icon.getBoundingClientRect().x + 100;
-          let pointY = marker._icon.getBoundingClientRect().y + 165;
+          let pointY = marker._icon.getBoundingClientRect().y + 190;
           let point = mapRef.current.containerPointToLatLng(
             L.point(pointX, pointY)
           );
