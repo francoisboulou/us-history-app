@@ -19,15 +19,19 @@ export default function App() {
   }
   // else {  /* geolocation IS NOT available */}
 
-  useEffect(() => {
-    if (latLngRes) {
-      const eventCoords = coordArray(latitude, longitude);
-      APIResponse.forEach((response, index) => {
-        response.location = eventCoords[index];
-      });
-      setEvents(APIResponse);
-    }
-  }, [latLngRes]);
+  useEffect(
+    () => {
+      if (latLngRes) {
+        const eventCoords = coordArray(latitude, longitude);
+        APIResponse.forEach((response, index) => {
+          response.location = eventCoords[index];
+        });
+        setEvents(APIResponse);
+      }
+    },
+    // eslint-disable-next-line
+    [latLngRes]
+  );
 
   if (latitude === null || longitude === null || events === null) {
     return <div>Loading</div>;
