@@ -45,6 +45,19 @@ export default function MapContainer(props) {
     []
   );
 
+  function removeClasses(elArr1, elArr2) {
+    if (elArr1.length) {
+      elArr1.forEach(el => {
+        el.classList.remove("icon-z-index");
+      });
+    }
+    if (elArr2.length) {
+      elArr2.forEach(el => {
+        el.classList.remove("leaflet-div-icon-hover");
+      });
+    }
+  }
+
   useEffect(() => {
     function removeClasses(elArr1, elArr2) {
       if (elArr1.length) {
@@ -86,25 +99,11 @@ export default function MapContainer(props) {
             )
           );
 
-          // marker.on("popupclose", e => {
-          //   console.log(e);
-          //   removeClasses(
-          //     Array.from(document.getElementsByClassName("icon-z-index")),
-          //     Array.from(
-          //       document.getElementsByClassName("leaflet-div-icon-hover")
-          //     )
-          //   );
-          // });
-
           let pointX = marker._icon.getBoundingClientRect().x + 100;
           let pointY = marker._icon.getBoundingClientRect().y + 190;
           let point = mapRef.current.containerPointToLatLng(
             L.point(pointX, pointY)
           );
-
-          // console.log("map", mapRef.current);
-
-          // let point = L.point;
 
           mapRef.current.setView(point);
 
@@ -126,18 +125,6 @@ export default function MapContainer(props) {
       });
     }
 
-    // Array.from(
-    //   document.getElementsByClassName("leaflet-popup-close-button")
-    // ).forEach(el => {
-    //   el.addEventListener(
-    //     "click",
-    //     removeClasses(
-    //       Array.from(document.getElementsByClassName("icon-z-index")),
-    //       Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
-    //     )
-    //   );
-    // });
-
     mapRef.current.on("click", () => {
       removeClasses(
         Array.from(document.getElementsByClassName("icon-z-index")),
@@ -151,6 +138,11 @@ export default function MapContainer(props) {
   useEffect(
     () => {
       mapRef.current.on("zoomend", () => {
+        removeClasses(
+          Array.from(document.getElementsByClassName("icon-z-index")),
+          Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
+        );
+        mapRef.current.closePopup();
         if (mapRef.current._zoom === 16) {
           Array.from(
             document.getElementsByClassName("leaflet-div-icon")
