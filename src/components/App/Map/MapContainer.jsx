@@ -56,17 +56,6 @@ export default function MapContainer(props) {
     });
   });
 
-  const iconsLg = props.events.map(event => {
-    return L.icon({
-      iconSize: new L.Point(85, 85),
-      iconUrl: event.image,
-      opacity: 0.5,
-      iconAnchor: new L.Point(16, 16),
-      popupAnchor: new L.Point(0, -18),
-      className: "leaflet-div-icon"
-    });
-  });
-
   const markers = props.events.map((event, i) => {
     return L.marker(event.location, {
       icon: icons[i]
@@ -89,6 +78,7 @@ export default function MapContainer(props) {
     //   }
 
     props.events.forEach((event, i) => {
+      // console.log(markers[i]);
       markers[i].bindPopup(
         `<h1>${event.title}</h1><p>${event.description}</p><a>Learn More</a>`,
         { autoPan: true }
@@ -164,13 +154,19 @@ export default function MapContainer(props) {
     () => {
       mapRef.current.on("zoomend", () => {
         if (mapRef.current._zoom === 16) {
-          markers.forEach((marker, i) => {
-            marker.setIcon(iconsLg[i]);
+          Array.from(
+            document.getElementsByClassName("leaflet-div-icon")
+          ).forEach(el => {
+            el.classList.add("zoomed");
           });
         } else {
-          markers.forEach((marker, i) => {
-            marker.setIcon(icons[i]);
-          });
+          if (Array.from(document.getElementsByClassName("zoomed")).length) {
+            Array.from(
+              document.getElementsByClassName("leaflet-div-icon")
+            ).forEach(el => {
+              el.classList.remove("zoomed");
+            });
+          }
         }
       });
     },
