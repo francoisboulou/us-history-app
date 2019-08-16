@@ -86,6 +86,9 @@ My folder structure will resemble this:
 ![Folder structure](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/folder%20structure/structure_1.PNG)
 ![Folder structure 2](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/folder%20structure/structure_2.PNG)
 
-## 2.1 Component Diagrams
+## 2.1 Component Diagram
 
 ![General Components Outline](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/component%20diagrams/componentDiagram_1.jpg)
+
+### Note about component diagram: 
+One of my goals for this project is to practice a functional, hook driven style of writing react. I initally tried to use the react-leaflet library to generate my map and its elements, but due to its reliance on class components I decided to use the original leaflet library. This aproach has resulted in all of the logic concerning my map (markers, layers, controls) to reside in the main map container function. This fact makes the diagram above inaccurate. I am leaving it up for now because I contrinue to strive for separation of components in this project, and the diagram serves as a good reminder of that.  
