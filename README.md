@@ -18,26 +18,19 @@ Another challenge is the lack of local history APIs. In the near future, I aim t
   - Use of Leaflet methods to create a custom map reset button that uses data collected by the navigator.geolocation API
   - Creation of a custom marker icon style that matches the mockups below
   - Marker click behavior that centers and expands marker, and opens custom popup. Marker and popup are stacked vertically for mobile-friendliness.
+  - Added layer control to filter markers based on historical category assigned.
 
 # My stack (subject to change!)
 
 - React.js (create-react-app)
   - Hooks
   - Context API
-  - Router
 - Leaflet.js
-- Bootstrap (for static pages)
+- Bootstrap
 - Sass
 - Styled Components (on the web app)
 - NPM/NPM Scripts
 - Webpack
-
-# Things I expect to learn in this project
-
-- Writing clean, modular, maintainable React code will be more important than it has been in previous, smaller projects.
-- Use of more advanced React features such as hooks, routing, and state management solutions such as Context API and Redux if necessary.
-- APIs
-- Auth
 
 # 1. Planning and Mockups
 
