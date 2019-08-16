@@ -40,11 +40,13 @@ export default function MapContainer({ center, markersData }) {
   const scienceLayerRef = useRef(null);
   const cultureLayerRef = useRef(null);
   const militaryLayerRef = useRef(null);
+  const cent21LayerRef = useRef(null);
   const [layerObj, setLayerObj] = useState(null);
   useEffect(() => {
     scienceLayerRef.current = L.layerGroup().addTo(mapRef.current);
     cultureLayerRef.current = L.layerGroup().addTo(mapRef.current);
     militaryLayerRef.current = L.layerGroup().addTo(mapRef.current);
+    cent21LayerRef.current = L.layerGroup().addTo(mapRef.current);
     setLayerObj({
       science: scienceLayerRef.current,
       culture: cultureLayerRef.current,
@@ -71,7 +73,7 @@ export default function MapContainer({ center, markersData }) {
                 marker.description
               }</p><a>Learn More</a>`
             )
-            .addTo(layerObj[marker.category]);
+            .addTo(layerObj[marker.category], cent21LayerRef.current);
         });
       }
     },
@@ -160,10 +162,16 @@ export default function MapContainer({ center, markersData }) {
 
   useEffect(
     () => {
+      const cent = {
+        "21st Century": cent21LayerRef.current
+      };
       if (layerObj) {
         resetMap(mapRef, center, zoom);
         L.control
           .layers(null, layerObj, { collapsed: false })
+          .addTo(mapRef.current);
+        L.control
+          .layers(null, cent, { collapsed: false })
           .addTo(mapRef.current);
       }
     },
