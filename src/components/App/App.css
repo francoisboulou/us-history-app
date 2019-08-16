@@ -13,6 +13,11 @@
   transition: 1s;
 }
 
+.zoomed {
+  width: 85px !important;
+  height: 85px !important;
+}
+
 .leaflet-div-icon-hover {
   width: 300px !important;
   height: 300px !important;
@@ -22,11 +27,6 @@
 
 .icon-z-index {
   z-index: 10000 !important;
-}
-
-.zoomed {
-  width: 85px !important;
-  height: 85px !important;
 }
 
 .marker-text-hover {

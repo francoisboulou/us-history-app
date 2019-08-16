@@ -73,70 +73,78 @@ export default function MapContainer({ center, markersData }) {
     []
   );
 
-  // useEffect(() => {
-  //   markersData.forEach(marker => {
-  //     marker.on("click", e => {
-  //       removeClasses(
-  //         Array.from(document.getElementsByClassName("icon-z-index")),
-  //         Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
-  //       );
-  //       let pointX = marker._icon.getBoundingClientRect().x + 100;
-  //       let pointY = marker._icon.getBoundingClientRect().y + 190;
-  //       let point = mapRef.current.containerPointToLatLng(
-  //         L.point(pointX, pointY)
-  //       );
+  useEffect(() => {
+    layerRef.current.eachLayer(layer => {
+      if (layer instanceof L.Marker) {
+        layer.on("popupclose", e => {
+          console.log(e);
+          removeClasses(
+            Array.from(document.getElementsByClassName("icon-z-index")),
+            Array.from(
+              document.getElementsByClassName("leaflet-div-icon-hover")
+            )
+          );
+        });
 
-  //       mapRef.current.setView(point);
+        layer.on("click", e => {
+          removeClasses(
+            Array.from(document.getElementsByClassName("icon-z-index")),
+            Array.from(
+              document.getElementsByClassName("leaflet-div-icon-hover")
+            )
+          );
+          const rect = e.target._icon.getBoundingClientRect();
+          const pX = rect.x + 100;
+          const pY = rect.y + 190;
+          const point = mapRef.current.containerPointToLatLng(L.point(pX, pY));
 
-  //       e.target._icon.classList.add("icon-z-index", "leaflet-div-icon-hover");
-  //     });
+          mapRef.current.setView(point);
 
-  //     marker.on("popupclose", e => {
-  //       console.log(e);
-  //       removeClasses(
-  //         Array.from(document.getElementsByClassName("icon-z-index")),
-  //         Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
-  //       );
-  //     });
-  //   });
+          e.target._icon.classList.add(
+            "icon-z-index",
+            "leaflet-div-icon-hover"
+          );
+        });
+      }
+    });
+    //eslint-disable-next-line
+  }, []);
 
-  //   mapRef.current.on("click", () => {
-  //     removeClasses(
-  //       Array.from(document.getElementsByClassName("icon-z-index")),
-  //       Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
-  //     );
-  //   });
-  //   //eslint-disable-next-line
-  // }, []);
+  useEffect(
+    () => {
+      mapRef.current.on("click", () => {
+        removeClasses(
+          Array.from(document.getElementsByClassName("icon-z-index")),
+          Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
+        );
+      });
 
-  // useEffect(
-  //   () => {
-  //     mapRef.current.on("zoomend", () => {
-  //       removeClasses(
-  //         Array.from(document.getElementsByClassName("icon-z-index")),
-  //         Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
-  //       );
-  //       mapRef.current.closePopup();
-  //       if (mapRef.current._zoom === 16) {
-  //         Array.from(
-  //           document.getElementsByClassName("leaflet-div-icon")
-  //         ).forEach(el => {
-  //           el.classList.add("zoomed");
-  //         });
-  //       } else {
-  //         if (Array.from(document.getElementsByClassName("zoomed")).length) {
-  //           Array.from(
-  //             document.getElementsByClassName("leaflet-div-icon")
-  //           ).forEach(el => {
-  //             el.classList.remove("zoomed");
-  //           });
-  //         }
-  //       }
-  //     });
-  //   },
-  //   // eslint-disable-next-line
-  //   []
-  // );
+      mapRef.current.on("zoomend", () => {
+        removeClasses(
+          Array.from(document.getElementsByClassName("icon-z-index")),
+          Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
+        );
+        mapRef.current.closePopup();
+        if (mapRef.current._zoom === 16) {
+          Array.from(
+            document.getElementsByClassName("leaflet-div-icon")
+          ).forEach(el => {
+            el.classList.add("zoomed");
+          });
+        } else {
+          if (Array.from(document.getElementsByClassName("zoomed")).length) {
+            Array.from(
+              document.getElementsByClassName("leaflet-div-icon")
+            ).forEach(el => {
+              el.classList.remove("zoomed");
+            });
+          }
+        }
+      });
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   return <div style={{ height: "100vh", width: "100%" }} id="map" />;
 }
