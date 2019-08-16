@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import L from "leaflet";
 import resetMap from "./Controls/ResetMap/resetMap";
 import removeClasses from "../../Utils/util_removeClasses";
-import "leaflet";
 
 export default function MapContainer({ center, markersData }) {
   const layerID = "mapbox.streets";
@@ -45,70 +44,90 @@ export default function MapContainer({ center, markersData }) {
     []
   );
 
-  const layerRef = useRef(null);
+  const scienceLayerRef = useRef(null);
+  const cultureLayerRef = useRef(null);
+  const militaryLayerRef = useRef(null);
+  const [layerObj, setLayerObj] = useState(null);
   useEffect(() => {
-    layerRef.current = L.layerGroup().addTo(mapRef.current);
+    scienceLayerRef.current = L.layerGroup().addTo(mapRef.current);
+    cultureLayerRef.current = L.layerGroup().addTo(mapRef.current);
+    militaryLayerRef.current = L.layerGroup().addTo(mapRef.current);
+    setLayerObj({
+      science: scienceLayerRef.current,
+      culture: cultureLayerRef.current,
+      military: militaryLayerRef.current
+    });
   }, []);
 
   // update markers
+  //someMarker.addTo(someLayerGroup);
+
   useEffect(
     () => {
-      layerRef.current.clearLayers();
-      markersData.forEach(marker => {
-        L.marker(marker.location, {
-          icon: L.icon({
-            iconUrl: marker.image,
-            className: "leaflet-div-icon"
+      // scienceLayerRef.current.clearLayers();
+      if (layerObj) {
+        markersData.forEach(marker => {
+          L.marker(marker.location, {
+            icon: L.icon({
+              iconUrl: marker.image,
+              className: "leaflet-div-icon"
+            })
           })
-        })
-          .bindPopup(
-            `<h1>${marker.title}</h1><p>${
-              marker.description
-            }</p><a>Learn More</a>`
-          )
-          .addTo(layerRef.current);
-      });
+            .bindPopup(
+              `<h1>${marker.title}</h1><p>${
+                marker.description
+              }</p><a>Learn More</a>`
+            )
+            .addTo(layerObj[marker.category]);
+        });
+      }
     },
     // eslint-disable-next-line
-    []
+    [layerObj]
   );
 
   useEffect(() => {
-    layerRef.current.eachLayer(layer => {
-      if (layer instanceof L.Marker) {
-        layer.on("popupclose", e => {
-          console.log(e);
-          removeClasses(
-            Array.from(document.getElementsByClassName("icon-z-index")),
-            Array.from(
-              document.getElementsByClassName("leaflet-div-icon-hover")
-            )
-          );
+    if (layerObj) {
+      Object.values(layerObj).forEach(layerGrp => {
+        layerGrp.eachLayer(layer => {
+          if (layer instanceof L.Marker) {
+            layer.on("popupclose", e => {
+              console.log(e);
+              removeClasses(
+                Array.from(document.getElementsByClassName("icon-z-index")),
+                Array.from(
+                  document.getElementsByClassName("leaflet-div-icon-hover")
+                )
+              );
+            });
+
+            layer.on("click", e => {
+              removeClasses(
+                Array.from(document.getElementsByClassName("icon-z-index")),
+                Array.from(
+                  document.getElementsByClassName("leaflet-div-icon-hover")
+                )
+              );
+              const rect = e.target._icon.getBoundingClientRect();
+              const pX = rect.x + 100;
+              const pY = rect.y + 190;
+              const point = mapRef.current.containerPointToLatLng(
+                L.point(pX, pY)
+              );
+
+              mapRef.current.setView(point);
+
+              e.target._icon.classList.add(
+                "icon-z-index",
+                "leaflet-div-icon-hover"
+              );
+            });
+          }
         });
-
-        layer.on("click", e => {
-          removeClasses(
-            Array.from(document.getElementsByClassName("icon-z-index")),
-            Array.from(
-              document.getElementsByClassName("leaflet-div-icon-hover")
-            )
-          );
-          const rect = e.target._icon.getBoundingClientRect();
-          const pX = rect.x + 100;
-          const pY = rect.y + 190;
-          const point = mapRef.current.containerPointToLatLng(L.point(pX, pY));
-
-          mapRef.current.setView(point);
-
-          e.target._icon.classList.add(
-            "icon-z-index",
-            "leaflet-div-icon-hover"
-          );
-        });
-      }
-    });
+      });
+    }
     //eslint-disable-next-line
-  }, []);
+  }, [layerObj]);
 
   useEffect(
     () => {
