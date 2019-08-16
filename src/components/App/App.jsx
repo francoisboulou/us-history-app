@@ -37,20 +37,5 @@ export default function App() {
   if (center === null || markersData === null) {
     return <div>Loading</div>;
   }
-  return (
-    <div>
-      <Map markersData={markersData} center={center} />;
-      <div
-        style={{
-          height: "300px",
-          width: "300px",
-          border: "2px solid red",
-          zIndex: "400",
-          position: "absolute",
-          top: "0",
-          left: "0"
-        }}
-      />
-    </div>
-  );
+  return <Map markersData={markersData} center={center} />;
 }

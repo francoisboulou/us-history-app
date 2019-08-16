@@ -36,13 +36,6 @@ export default function MapContainer({ center, markersData }) {
   );
 
   // Function extends Leaflet Control class to create a custom button
-  useEffect(
-    () => {
-      resetMap(mapRef, center, zoom);
-    },
-    //eslint-disable-next-line
-    []
-  );
 
   const scienceLayerRef = useRef(null);
   const cultureLayerRef = useRef(null);
@@ -163,6 +156,19 @@ export default function MapContainer({ center, markersData }) {
     },
     // eslint-disable-next-line
     []
+  );
+
+  useEffect(
+    () => {
+      if (layerObj) {
+        resetMap(mapRef, center, zoom);
+        L.control
+          .layers(null, layerObj, { collapsed: false })
+          .addTo(mapRef.current);
+      }
+    },
+    //eslint-disable-next-line
+    [layerObj]
   );
 
   return <div style={{ height: "100vh", width: "100%" }} id="map" />;
