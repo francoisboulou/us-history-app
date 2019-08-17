@@ -42,7 +42,8 @@ Another challenge is the lack of local history APIs. In the near future, I aim t
 
 - Main app interface will be a map, displaying the users location and immediate area.
 - Map will be populated by markers representing significant historical events which have occurred in the users immediate location.
-- Interaction with the marker will open card overlay, containing a summary of the event, alog with available photos, and additional links.
+- Interaction with the marker will open ~card overlay~ pop up containing a summary of the event with a read more link, and expand the pop up to display a relevant photo.
+- Clicking on read more link will open an overlay with an article, read further links, and a photo gallery.
 - (To be added on 2nd version of app) Users with an account can save events to favorites, and comment on events as well as share on social media.
 
 ### Future Features
