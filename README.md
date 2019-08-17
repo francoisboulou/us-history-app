@@ -20,7 +20,7 @@ Another challenge is the lack of local history APIs. In the near future, I aim t
   - Marker click behavior that centers and expands marker, and opens custom popup. Marker and popup are stacked vertically for mobile-friendliness.
   - Added layer control to filter markers based on historical category assigned.
 
-# My stack (subject to change!)
+# What I am using
 
 - React.js (create-react-app)
   - Hooks
@@ -53,15 +53,7 @@ Another challenge is the lack of local history APIs. In the near future, I aim t
 ## 1.2 Styling
 
 Logo is underway!
-I like the simple and friendly design of Khan Academy, and will take inspiration from it in designing UI elements as well as the overall layout of the site/app.
-
-### This is my current palette (coolors.co)
-
-![Palette](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/styles/palette.PNG)
-
-### My font pairing (fontpair.co)
-
-![Fonts](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/styles/fonts.PNG)
+Please see palette and fonts in styles folder https://github.com/francoisboulou/us-history-app/tree/master/src/assets/images/README/styles
 
 ### Headings
 
@@ -91,4 +83,4 @@ My folder structure will resemble this:
 ![General Components Outline](https://github.com/francoisboulou/us-history-maps/blob/master/src/assets/images/README/component%20diagrams/componentDiagram_1.jpg)
 
 ### Note about component diagram: 
-One of my goals for this project is to practice a functional, hook driven style of writing react. I initally tried to use the react-leaflet library to generate my map and its elements, but due to its reliance on class components I settled for the original leaflet library. This aproach has made it so that all of the elements which are added to my map (markers, layers, controls) reside within the main map container function. This fact makes the diagram above inaccurate but I am leaving it up for now because I contrinue to strive for separation of components in this project, and the diagram serves as a good reminder of that.  
+One of my goals for this project is to practice a functional, hook driven style of writing react. I initally tried to use the react-leaflet library to generate my map and its elements, but due to its reliance on class components I settled for the original leaflet library. This aproach has made it so that all of the elements which are added to my map (markers, layers, controls) reside within the main map container function. This fact makes the diagram above inaccurate, and I will update it soon.
