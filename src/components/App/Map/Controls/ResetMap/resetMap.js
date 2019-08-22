@@ -1,4 +1,3 @@
-import controlExtend from "../../../../Utils/util_extendControl";
 import L from "leaflet";
 
 export default function resetMap(mapRef, center, zoom) {
@@ -12,11 +11,21 @@ export default function resetMap(mapRef, center, zoom) {
     }
   };
 
-  L.control.myLoc = controlExtend(
-    "button",
-    "My Location",
-    opts,
-    mapRef,
-    handlers
-  ).addTo(mapRef.current);
+  
+
+  L.Control.resetMap = L.Control.extend({
+    onAdd: map => {
+      const ctrEl = L.DomUtil.create("button");
+      ctrEl.innerHTML = "My Location";
+      ctrEl.onclick = handlers.onClick
+      return ctrEl;
+    }
+    // onRemove: function(map) {
+    // Nothing to do here
+    //   }
+});
+
+const resetMap = new L.Control.resetMap(opts);
+
+resetMap.addTo(mapRef.current);
 }
