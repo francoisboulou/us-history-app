@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import L from "leaflet";
 import resetMap from "./Controls/ResetMap/resetMap";
+import categoryFilter from "./Controls/FilterMarkers/categoryFilter";
+import eraFilter from "./Controls/FilterMarkers/eraFilter";
 import removeClasses from "../../Utils/util_removeClasses";
 
 export default function MapContainer({ center, markersData }) {
@@ -35,92 +37,65 @@ export default function MapContainer({ center, markersData }) {
     []
   );
 
-  // Function extends Leaflet Control class to create a custom button
-
-  const scienceLayerRef = useRef(null);
-  const cultureLayerRef = useRef(null);
-  const militaryLayerRef = useRef(null);
-  const [layerObj, setLayerObj] = useState(null);
+  const visibleMarkersRef = useRef(null);
+  const [markers, setMarkers] = useState([]);
   useEffect(() => {
-    scienceLayerRef.current = L.layerGroup().addTo(mapRef.current);
-    cultureLayerRef.current = L.layerGroup().addTo(mapRef.current);
-    militaryLayerRef.current = L.layerGroup().addTo(mapRef.current);
-    setLayerObj({
-      science: scienceLayerRef.current,
-      culture: cultureLayerRef.current,
-      military: militaryLayerRef.current
-    });
+    visibleMarkersRef.current = L.layerGroup();
   }, []);
-
-  // update markers
-  //someMarker.addTo(someLayerGroup);
 
   useEffect(
     () => {
-      // scienceLayerRef.current.clearLayers();
-      if (layerObj) {
-        markersData.forEach(marker => {
+      markersData.forEach(marker => {
+        setMarkers(markers => [
+          ...markers,
           L.marker(marker.location, {
             icon: L.icon({
               iconUrl: marker.image,
               className: "leaflet-div-icon"
-            })
-          })
-            .bindPopup(
-              `<h1>${marker.title}</h1><p>${
-                marker.description
-              }</p><a>Learn More</a>`
-            )
-            .addTo(layerObj[marker.category]);
-        });
-      }
+            }),
+            category: marker.category,
+            era: marker.era,
+            year: marker.year
+          }).bindPopup(
+            `<h1>${marker.title}</h1><p>${
+              marker.description
+            }</p><a>Learn More</a>`
+          )
+        ]);
+      });
     },
     // eslint-disable-next-line
-    [layerObj]
+    []
   );
 
   useEffect(() => {
-    if (layerObj) {
-      Object.values(layerObj).forEach(layerGrp => {
-        layerGrp.eachLayer(layer => {
-          if (layer instanceof L.Marker) {
-            layer.on("popupclose", e => {
-              console.log(e);
-              removeClasses(
-                Array.from(document.getElementsByClassName("icon-z-index")),
-                Array.from(
-                  document.getElementsByClassName("leaflet-div-icon-hover")
-                )
-              );
-            });
-
-            layer.on("click", e => {
-              removeClasses(
-                Array.from(document.getElementsByClassName("icon-z-index")),
-                Array.from(
-                  document.getElementsByClassName("leaflet-div-icon-hover")
-                )
-              );
-              const rect = e.target._icon.getBoundingClientRect();
-              const pX = rect.x + 100;
-              const pY = rect.y + 190;
-              const point = mapRef.current.containerPointToLatLng(
-                L.point(pX, pY)
-              );
-
-              mapRef.current.setView(point);
-
-              e.target._icon.classList.add(
-                "icon-z-index",
-                "leaflet-div-icon-hover"
-              );
-            });
-          }
-        });
+    markers.forEach(marker => {
+      marker.on("popupclose", e => {
+        console.log(e);
+        removeClasses(
+          Array.from(document.getElementsByClassName("icon-z-index")),
+          Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
+        );
       });
-    }
+
+      marker.on("click", e => {
+        removeClasses(
+          Array.from(document.getElementsByClassName("icon-z-index")),
+          Array.from(document.getElementsByClassName("leaflet-div-icon-hover"))
+        );
+
+        const rect = e.target._icon.getBoundingClientRect();
+        const pX = rect.x + 100;
+        const pY = rect.y + 190;
+        const point = mapRef.current.containerPointToLatLng(L.point(pX, pY));
+
+        mapRef.current.setView(point);
+
+        e.target._icon.classList.add("icon-z-index", "leaflet-div-icon-hover");
+      });
+    });
     //eslint-disable-next-line
-  }, [layerObj]);
+  }, [markers]);
 
   useEffect(
     () => {
@@ -160,16 +135,86 @@ export default function MapContainer({ center, markersData }) {
 
   useEffect(
     () => {
-      if (layerObj) {
-        resetMap(mapRef, center, zoom);
-        L.control
-          .layers(null, layerObj, { collapsed: false })
-          .addTo(mapRef.current);
-      }
+      resetMap(mapRef, center, zoom);
     },
     //eslint-disable-next-line
-    [layerObj]
+    []
   );
+
+  const eraFilterRef = useRef(null);
+  const categoryFilterRef = useRef(null);
+  useEffect(
+    () => {
+      categoryFilterRef.current = categoryFilter().addTo(mapRef.current);
+      eraFilterRef.current = eraFilter().addTo(mapRef.current);
+    },
+    //eslint-disable-next-line
+    []
+  );
+
+  const [eraFilterArr, setEraFilter] = useState([]);
+  const [categoryFilterArr, setcategoryFilter] = useState([]);
+  useEffect(() => {
+    const filterBoxes = document.getElementsByClassName("filterBox");
+    for (let box of filterBoxes) {
+      box.onclick = () => {
+        if (box.checked) {
+          if (box.classList.contains("eraFilter")) {
+            setEraFilter(eraFilterArr => [...eraFilterArr, box.value]);
+          } else if (box.classList.contains("categoryFilter")) {
+            setcategoryFilter(categoryFilterArr => [
+              ...categoryFilterArr,
+              box.value
+            ]);
+          }
+        } else {
+          if (box.classList.contains("eraFilter")) {
+            setEraFilter(eraFilterArr =>
+              eraFilterArr.filter(item => item !== box.value)
+            );
+          } else if (box.classList.contains("categoryFilter")) {
+            setcategoryFilter(categoryFilterArr =>
+              categoryFilterArr.filter(item => item !== box.value)
+            );
+          }
+        }
+      };
+    }
+    console.log("category: ", categoryFilterArr, "eras: ", eraFilterArr);
+  }, [eraFilterArr, categoryFilterArr]);
+
+  useEffect(() => {
+    if (!eraFilterArr.length && !categoryFilterArr.length) {
+      markers.forEach(marker => {
+        marker.addTo(visibleMarkersRef.current);
+      });
+      visibleMarkersRef.current.addTo(mapRef.current);
+    } else {
+      visibleMarkersRef.current.clearLayers();
+      if (!eraFilterArr.length) {
+        markers.forEach(marker => {
+          if (categoryFilterArr.includes(marker.options.category)) {
+            marker.addTo(visibleMarkersRef.current);
+          }
+        });
+      }
+      if (!categoryFilterArr.length) {
+        markers.forEach(marker => {
+          if (eraFilterArr.includes(marker.options.era)) {
+            marker.addTo(visibleMarkersRef.current);
+          }
+        });
+      }
+      markers.forEach(marker => {
+        if (
+          eraFilterArr.includes(marker.options.era) &&
+          categoryFilterArr.includes(marker.options.category)
+        ) {
+          marker.addTo(visibleMarkersRef.current);
+        }
+      });
+    }
+  }, [markers, visibleMarkersRef, categoryFilterArr, eraFilterArr]);
 
   return <div style={{ height: "100vh", width: "100%" }} id="map" />;
 }
