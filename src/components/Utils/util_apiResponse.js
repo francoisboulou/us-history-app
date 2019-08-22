@@ -225,7 +225,7 @@ const APIResponse = [
     image: test20,
     category: "culture",
     year: "2019",
-    era: "Da Futurr"
+    era: "21st Century"
   },
   {
     title: "The sack of Baltimore",
@@ -267,7 +267,7 @@ const APIResponse = [
     image: test24,
     category: "military",
     year: "1888",
-    era: "1700s"
+    era: "21st Century"
   },
   {
     title: "The American invasion of Korea",
